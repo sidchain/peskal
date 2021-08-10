@@ -1,0 +1,144 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content='width=device-width, initial-scale=1' name='viewport'/>
+        <title>Peskal</title>
+        <style>
+            body{
+                background-color: #1b1b1b;
+                width: 98%;
+                height: 97%;
+            }
+            header{
+                display: flex;
+                width: 98%;
+                height: 75px;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                border-bottom: 2px solid cyan;
+                color: white;
+            }
+            .iklKiri, .iklKanan{
+                position: absolute;
+                width: 100px;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+            }
+            .iklKanan{
+                background-color: rgba(0, 255, 0, 0.26);
+                left: 7px;
+            }
+            .iklKiri{
+                background-color: rgba(255, 255, 0, 0.26);
+                right: 7px;
+            }
+            center{
+                width: 100%;
+                color: white;
+                padding-top: 10px;
+                padding-bottom: 100px;
+            }
+            footer {
+                position: fixed;
+                height: 40px;
+                width: 100%;
+                padding-top: 20px;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                color: white;
+                text-align: center;
+                border-top: 2px solid cyan;
+                background-color: #1b1b1b;
+            }
+            .gaming{
+                position: relative;
+            }
+            .gaming p{
+                background-color: #003a3a;
+                width: 100px;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: 0.32s;
+            }
+            .gaming p:hover{
+                background-color: cyan;
+                color: black;
+            }
+            .pubg, .ml, .sosis, .minecraft, .ff{
+                transition: 0.5s;
+                position: relative;
+                margin-right: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 10px;
+                display: flex;
+                opacity: 40%;
+                width: 300px;
+                height: 150px;
+                border: 2px solid transparent;
+            }
+            .pubg:hover, .ml:hover, .sosis:hover, .minecraft:hover, .ff:hover{
+                transition: 0.1s;
+                opacity: 100%;
+                border: 2px solid black;
+                cursor: pointer;
+                box-shadow: 0 0 20px 5px cyan;
+            }
+            .pubg{
+                background: url('foto/PUBGm.jpeg');
+                background-size: cover;
+                background-position: center;
+            }
+            .ml{
+                background: url('foto/ml.jpeg');
+                background-size: cover;
+                background-position: center;
+            }
+            .sosis{
+                background: url('foto/spotify.jpeg');
+                background-size: cover;
+                background-position: center;
+            }
+            .minecraft{
+                background: url('foto/steam.jpeg');
+                background-size: cover;
+                background-position: center;
+            }
+            .ff{
+                background: url('foto/ff.jpeg');
+                background-size: cover;
+                background-position: center;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            PESKAL
+            <div class="iklKiri">iklan 1</div>
+            <div class="iklKanan">iklan 2</div>
+        </header>
+        <center>
+            <div class="gaming">
+                <p>Kembali</p>
+                <div class="pubg"></div>
+                <div class="ml"></div>
+                <div class="sosis"></div>
+                <div class="minecraft"></div>
+                <div class="ff"></div>
+            </div>
+        </center>
+        <footer>
+            Copyright 2021 Peskal
+        </footer>
+    </body>
+</html>

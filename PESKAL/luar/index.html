@@ -1,0 +1,257 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content='width=device-width, initial-scale=1' name='viewport'/>
+        <title>PESKAL</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap');
+
+            body{
+                background-color: #1b1b1b;
+                width: 98%;
+                height: 97%;
+            }
+            header{
+                display: flex;
+                width: 100%;
+                height: 75px;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                border-bottom: 2px solid cyan;
+                color: white;
+                font-family: 'Dosis', sans-serif;
+            }
+            .iklKiri, .iklKanan{ 
+                position: absolute;
+                width: 100px;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+            }
+            .iklKanan{display: none;
+                background-color: rgba(0, 255, 0, 0.26);
+                left: 7px;
+            }
+            .iklKiri{display: none;
+                background-color: rgba(255, 255, 0, 0.26);
+                right: 7px;
+            }
+            center{
+                width: 100%;
+                color: white;
+                padding-top: 20px;
+                padding-left: 2px;
+                font-family: 'Dosis', sans-serif;
+                padding-bottom: 100px;
+            }
+            center .kartu{
+                background-color: black;
+                width: 300px;
+                height: 40px;
+                display: flex;
+                margin-bottom: 20px;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                border-radius: 50px;
+                border: 2px solid transparent;
+                transition: 0.5s;
+            }
+            #kartu1{
+                background: url('foto/ln.jpg');
+                background-size: cover;
+                background-position: center;
+            }
+            #kartu2{
+                background: url('foto/kalem.jpeg');
+                background-size: cover;
+                background-position: center;
+            }
+            #kartu3{
+                background: url('foto/jodoh.jpeg');
+                background-size: cover;
+                background-position: center;
+            }
+            #kartu4{
+                background: url('foto/bacot.jpeg');
+                background-size: cover;
+                background-position: center;
+            }
+            #kartu5{
+                background: linear-gradient(120deg, #4e0000, #363600, #004d00, #000027);
+            }
+            #kartu6{
+                background: url('foto/code.jpeg');
+                background-size: cover;
+                background-position: center;
+            }
+            footer {
+                font-family: 'Dosis', sans-serif;
+                position: fixed;
+                height: 40px;
+                width: 100%;
+                padding-top: 20px;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                color: white;
+                text-align: center;
+                border-top: 2px solid cyan;
+                background-color: #1b1b1b;
+            }
+            .jenis{
+                padding-top: 20px;
+                width: 100px;
+                height: 200px;
+                background-color: lime;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+            .gaming{
+                position: relative;
+            }
+            .gaming p{
+                background-color: #003a3a;
+                width: 100px;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: 0.32s;
+            }
+            .gaming p:hover{
+                background-color: cyan;
+                color: black;
+            }
+            .pubg, .ml, .sosis, .minecraft, .ff{
+                transition: 0.5s;
+                position: relative;
+                margin-right: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 10px;
+                display: flex;
+                opacity: 40%;
+                width: 300px;
+                height: 150px;
+                border: 2px solid transparent;
+            }
+            .pubg:hover, .ml:hover, .sosis:hover, .minecraft:hover, .ff:hover, .kartu:hover{
+                transition: 0.1s;
+                opacity: 100%;
+                border: 2px solid black;
+                cursor: pointer;
+                box-shadow: 0 0 20px 5px cyan;
+            }
+            .pubg{
+                background: url('foto/PUBGm.jpeg');
+                background-size: cover;
+                background-position: center;
+            }
+            .ml{
+                background: url('foto/ml.jpeg');
+                background-size: cover;
+                background-position: center;
+            }
+            .sosis{
+                background: url('foto/sosis.jpeg');
+                background-size: cover;
+                background-position: center;
+            }
+            .minecraft{
+                background: url('foto/minecraft.jpeg');
+                background-size: cover;
+                background-position: center;
+            }
+            .ff{
+                background: url('foto/ff.jpeg');
+                background-size: cover;
+                background-position: center;
+            }
+            ::-webkit-scrollbar {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            PESKAL
+            <div class="iklKiri">iklan 1</div>
+            <div class="iklKanan">iklan 2</div>
+        </header>
+        <center>
+            <div class="konten" id="konten">
+                <div class="kartu" id="kartu1" onclick="hapus()">
+                    <p>GAME CHAT</p>
+                </div>
+                <div class="kartu" id="kartu2" onclick="window.location.href='../dalam/kalemRoom.html'">
+                    <p>NGOBROL KALEM</p>
+                </div>
+                <div class="kartu" id="kartu3"onclick="window.location.href='../dalam/jodohRoom.html'">
+                    <p>CARI JODOH</p>
+                </div>
+                <div class="kartu" id="kartu4"onclick="window.location.href='../dalam/bacotRoom.html'">
+                    <p>BACOTAN</p>
+                </div>
+                <div class="kartu" id="kartu5"onclick="window.location.href='../dalam/pelangiRoom.html'">
+                    <p>TIDAK STRAIGHT</p>
+                </div>
+                <div class="kartu" id="kartu6"onclick="window.location.href='../dalam/saran.html'">
+                    <p>SARAN BUAT MIMIN</p>
+                </div>
+            </div>
+        </center>
+        <footer>
+            Copyright © 2021 ⋅ Peskal
+        </footer>
+        <script>
+            function hapus(){
+                parent = this;
+                var konten = document.getElementById('konten')
+                konten.remove()
+                var center = document.querySelector('center')
+                center.innerHTML=`<div class="gaming" id="gaming">
+                <p onclick="buat()">Kembali</p>
+                <div class="pubg" onclick="window.location.href='../dalam/pubgRoom.html'"></div>
+                <div class="ml" onclick="window.location.href='../dalam/mlRoom.html'"></div>
+                <div class="sosis"onclick="window.location.href='../dalam/sosisRoom.html'"></div>
+                <div class="minecraft" onclick="window.location.href='../dalam/mncrftRoom.html'"></div>
+                <div class="ff"onclick="window.location.href='../dalam/ffRoom.html'"></div>
+            </div>`
+            };
+            function buat(){
+                var gaming = document.getElementById('gaming')
+                gaming.remove()
+                var center = document.querySelector('center')
+                center.innerHTML=`
+            <div class="konten" id="konten">
+                <div class="kartu" id="kartu1" onclick="hapus()">
+                    <p>GAME CHAT</p>
+                </div>
+                <div class="kartu" id="kartu2" onclick="window.location.href='../dalam/kalemRoom.html'">
+                    <p>NGOBROL KALEM</p>
+                </div>
+                <div class="kartu" id="kartu3"onclick="window.location.href='../dalam/jodohRoom.html'">
+                    <p>CARI JODOH</p>
+                </div>
+                <div class="kartu" id="kartu4"onclick="window.location.href='../dalam/bacotRoom.html'">
+                    <p>BACOTAN</p>
+                </div>
+                <div class="kartu" id="kartu5"onclick="window.location.href='../dalam/pelangiRoom.html'">
+                    <p>TIDAK STRAIGHT</p>
+                </div>
+                <div class="kartu" id="kartu6"onclick="window.location.href='../dalam/saran.html'">
+                    <p>SARAN BUAT MIMIN</p>
+                </div>
+            </div>`
+            }
+        </script>
+    </body>
+</html>

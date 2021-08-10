@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Peskal: Mobile Legend</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+
+      body {
+        background: #1b1b1b;
+        padding: 0;
+        margin: 0;
+      }
+      .header {
+        height: 70px;
+        width: 100%;
+        text-align: center;
+        font-family: 'Dosis', sans-serif;
+        background-color: #1a1a1a;
+        border-bottom: 2px solid cyan;
+      }
+      .kembali{
+        display: inline;
+        position: absolute;
+        left: 10px;
+        font-size: 55px;
+        color: white;
+      }
+      .kembali:hover{
+        color: cyan;
+      }
+      .iklan{
+        background-color: none;
+        width: 123px;
+        height: 60px;
+        margin-top: 5px;
+        margin-right: 5px;
+        position: absolute;
+        display: inline;
+        right: 0;
+      }
+      .message-body {
+        height: 200px;
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+      }
+      .footer {
+        position: absolute;
+        height: 60px;
+        width: 100%;
+        margin: auto;
+        bottom: 0;
+        right: 0;
+        left: 0;
+      }
+      .message-input {
+        height: 0;
+        width: 80%;
+        padding: 20px;
+        margin-top: 10px;
+        font-size: 17px;
+        outline: none;
+        border: 0;
+        color: white;
+        font-family: 'Dosis', sans-serif;
+        background: transparent;
+        border-bottom: 3px solid cyan;
+        transition: 0.3s;
+      }
+      .message-input:focus {
+        border-bottom: 3px solid cyan;
+      }
+      .message-holder {
+        width: 100%;
+        height: fit-content;
+        margin-bottom: 5px;
+        display: inline-flex;
+        font-size: 17px;
+      }
+      .my-text {
+        height: fit-content;
+        width: fit-content;
+        padding: 10px;
+        color: white;
+        font-family: 'Dosis', sans-serif;
+        background: #009494;
+        margin-left: auto;
+        right: 0;
+        max-width: 200px;
+        border-radius: 7px;
+        margin-right: 20px;
+      }
+      .their-name {
+        color: white;
+        font-family: 'Dosis', sans-serif;
+        height: fit-content;
+        width: fit-content;
+        margin-right: auto;
+        left: 0;
+        margin-left: 25px;
+        margin-bottom: 5px;
+      }
+      .my-name {
+        color: white;
+        font-family: 'Dosis', sans-serif;
+        height: fit-content;
+        width: fit-content;
+        margin-left: auto;
+        right: 0;
+        margin-right: 25px;
+        margin-bottom: 5px;
+      }
+      .their-text {
+        height: fit-content;
+        width: fit-content;
+        padding: 10px;
+        color: white;
+        font-family: 'Dosis', sans-serif;
+        background: #003a3a;
+        margin-right: auto;
+        left: 0;
+        max-width: 200px;
+        border-radius: 4px;
+        margin-left: 20px;
+      }
+      .loader {
+        position: absolute;
+        height: 100px;
+        margin: auto;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        opacity: 1;
+        transition: 0.2s;
+      }
+      .swal-title{
+        color: tomato;
+        font-family: 'Dosis', sans-serif;
+      }
+      .swal-text {
+        color: white;
+        font-size: 30px;
+        font-family: 'Dosis', sans-serif;
+      }
+      .swal-content__input {
+        background: transparent;
+        border: 0;
+        outline: none;
+        color: white;
+        font-size: 20px;
+        border-bottom: 3px solid #008b8b;
+      }
+      .swal-button {
+        background-color: #001212;
+      }
+      .swal-button:not([disabled]):hover {
+        background-color: #002828;
+      }
+      .swal-overlay swal-overlay--show-modal ::before {
+        outline: none;
+      }
+      .swal-content__input:focus {
+        border-bottom: 3px solid cyan;
+      }
+      .swal-modal {
+        background-color: #001a1a;
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: none;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: cyan;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img style="padding-top: 10px;" width="150px" src="gambar/mllogo.png">
+      <div class="kembali" onclick="window.location.href='../luar/index.html'" style="cursor: pointer;"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+      <div class="iklan"></div>
+    </div>
+    <div class="message-body">
+      <div class="loader"></div>
+    </div>
+    <div class="footer">
+      <center>
+        <input type="text" placeholder="Tulis Pesan.." class="message-input" />
+      </center>
+    </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyDHGWxzDAnEf6JolrIv1NHHGUvTj8V9Fto",
+        authDomain: "lvchat-6a692.firebaseapp.com",
+        databaseURL: "https://lvchat-6a692-default-rtdb.firebaseio.com",
+        projectId: "lvchat-6a692",
+        storageBucket: "lvchat-6a692.appspot.com",
+        messagingSenderId: "461864571076",
+        appId: "1:461864571076:web:2d8ab9e5b7d3a79866f991",
+      };
+      firebase.initializeApp(firebaseConfig);
+      setInterval(() => {
+        document.querySelector(".message-body").style.height =
+          window.innerHeight - 110 + "px";
+      }, 100);
+      var me = "";
+      window.onload = function () {
+        swal({
+          text: "Siapa nama kamu?",
+          content: "input",
+          button: {
+            text: "Mulai!",
+            closeModal: true,
+          },
+          allowOutsideClick: false,
+          closeOnClickOutside: false,
+        }).then((value) => {
+          if (value.trim() == "") {
+            window.location.reload();
+            return;
+          }
+          me = value;
+          document
+            .querySelector(".message-input")
+            .addEventListener("keypress", (e) => {
+              if (e.key === "Enter") {
+                firebase
+                  .database()
+                  .ref("livechat/ml")
+                  .push({
+                    user: me,
+                    msg: document
+                      .querySelector(".message-input")
+                      .value.trim()
+                      .replace(/</g, "&lt;"),
+                  });
+                document.querySelector(".message-input").value = "";
+              }
+            });
+          var id = "";
+          firebase
+            .database()
+            .ref("livechat/ml")
+            .on("child_added", (s) => {
+              document.querySelector(".loader").style.opacity = "0";
+              if (s.val().user === me) {
+                if (id !== s.val().user)
+                  document.querySelector(".message-body").innerHTML +=
+                    '<div class="my-name">Kamu</div><div class="message-holder"><div class="my-text" onclick="deleteMsg(\'' +
+                    s.key +
+                    "')\" id=" +
+                    s.key +
+                    " >" +
+                    s.val().msg +
+                    "</div></div>";
+                else
+                  document.querySelector(".message-body").innerHTML +=
+                    '<div class="message-holder"><div class="my-text" onclick="deleteMsg(\'' +
+                    s.key +
+                    "')\" id=" +
+                    s.key +
+                    ">" +
+                    s.val().msg +
+                    "</div></div>";
+              } else {
+                if (id !== s.val().user)
+                  document.querySelector(".message-body").innerHTML +=
+                    '<div class="their-name">' +
+                    s.val().user +
+                    '</div><div class="message-holder"><div class="their-text" id=' +
+                    s.key +
+                    ">" +
+                    s.val().msg +
+                    "</div></div>";
+                else
+                  document.querySelector(".message-body").innerHTML +=
+                    '<div class="message-holder"><div class="their-text" id=' +
+                    s.key +
+                    ">" +
+                    s.val().msg +
+                    "</div></div>";
+              }
+              document.querySelector(".message-body").scrollBy(0, 1000);
+              id = s.val().user;
+              firebase
+                .database()
+                .ref("livechat/ml/" + s.key)
+                .on("child_changed", (a) => {
+                  document.querySelector("#" + s.key).innerHTML =
+                    `<i style='color: black; font-weight: bolder;'>Pesan telah dihapus</i>`;
+                });
+            });
+        });
+        document.querySelector(".swal-content__input").placeholder =
+          "contoh: pria tampan";
+      };
+      function deleteMsg(key) {
+        console.log(key);
+        swal({
+          title: "Apa kamu yakin?",
+          text: "Pesan tidak dapat kembali ketika dihapus!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        }).then((e) => {
+          console.log(e);
+          if (e)
+            firebase
+              .database()
+              .ref("livechat/ml/" + key)
+              .set({ user: me, msg: `<i style='color: tomato; font-weight: bolder;'>Pesan telah dihapus</i>` });
+        });
+      }
+    </script>
+  </body>
+</html>
